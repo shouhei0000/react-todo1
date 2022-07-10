@@ -48,8 +48,10 @@ export const App = () => {
         <>
 
          {/*↓↓InputTodoにpropsとしてデータを渡している */}
-        <InputTodo todoText={todoText} onChange ={onChangeTodoText} onClick={onClickAdd}/>  {/*inputtodoの実行 */}
+        <InputTodo todoText={todoText} onChange ={onChangeTodoText} onClick={onClickAdd} disabled={incompleteTodos.length >= 5 }/>  {/*inputtodoの実行 */}
         {/*↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑↑*/}
+        {incompleteTodos.length >= 5 && <p style={{color: 'red'}}>登録できるtodo5個まで　消化しようね</p>}
+        
 
         {/* 未完了のtodoリスト コンポーネント化しpropsを渡している*/}
         <IncompleteTodos  todo={incompleteTodos} onClickComplete={onClickComplete} onClickDelete={onClickDelete}/>
